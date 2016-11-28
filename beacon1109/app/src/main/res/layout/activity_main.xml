@@ -116,17 +116,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/buttominfo2"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView3"
-                            android:text="세번째내용"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView4"
-                            android:text="네번째내용"/>
+                            android:id="@+id/storeName2"
+                            android:text="매장이름"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -178,17 +174,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/buttominfo3"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_gravity="center">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView5"
-                            android:text="다섯번째내용"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView6"
-                            android:text="여섯번째내용"/>
+                            android:id="@+id/storeName3"
+                            android:text="매장이름"/>
                     </LinearLayout>
                 </LinearLayout>
             </RelativeLayout>

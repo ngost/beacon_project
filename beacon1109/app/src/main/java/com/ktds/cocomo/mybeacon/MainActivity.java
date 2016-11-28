@@ -30,8 +30,11 @@ public class MainActivity extends TabActivity {
     private Boolean eventisConnected;
     private Boolean serviceIsConnected;
     private String major;
+    private String beaconName;
+
     BeaconManager beaconManager;
     MenuConnection serverConnect;
+    StoreNameConnection storeName;
     EventConnection eventConnect;
     ServiceConnection serviceConnect;
     private ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
@@ -41,6 +44,7 @@ public class MainActivity extends TabActivity {
     ProgressDialog progDialog;
     Context context = this;
     AlertDialog.Builder builder;
+    TextView store;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +54,9 @@ public class MainActivity extends TabActivity {
         serviceIsConnected = false;
         eventisConnected = false;
         major = getIntent().getStringExtra("major");
+
         Log.d("major=",major);
+
 
         Thread jinThread = new Thread(new Runnable() {
             @Override
@@ -62,6 +68,9 @@ public class MainActivity extends TabActivity {
                         ,serverConnect.getUrl(i),serverConnect.getContent(i),serverConnect.getPrefer(i));
                         menuItems.add(menuitem);
                 }
+
+                storeName = new StoreNameConnection(major,"http://211.227.149.160:8080/BeaconServer/beacon/Select_Store_Name.jsp");
+                beaconName = storeName.requestData();
             }
         });
         jinThread.start();
@@ -71,6 +80,20 @@ public class MainActivity extends TabActivity {
             Log.d("error", "error");
         }
 
+
+        //매장 이름 setText
+        store = (TextView) findViewById(R.id.storeName1);
+        store.setText(beaconName);
+        store = (TextView) findViewById(R.id.storeName2);
+        store.setText(beaconName);
+        store = (TextView) findViewById(R.id.storeName3);
+        store.setText(beaconName);
+
+        final TabHost tabHost = getTabHost();
+
+        TabHost.TabSpec tabSpectab1 = tabHost.newTabSpec("첫번째탭").setIndicator("메뉴");
+        tabSpectab1.setContent(R.id.tab1);
+        tabHost.addTab(tabSpectab1);
         View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,16 +102,7 @@ public class MainActivity extends TabActivity {
                 mListAdapter.notifyDataSetChanged();
             }
         };
-
-
-        final TabHost tabHost = getTabHost();
-
-        TabHost.TabSpec tabSpectab1 = tabHost.newTabSpec("첫번째탭").setIndicator("메뉴");
-        tabSpectab1.setContent(R.id.tab1);
-        tabHost.addTab(tabSpectab1);
-
         ListView menuListView = (ListView)findViewById(R.id.MenuList);
-
         mListAdapter = new MenuListAdapter(this,menuItems,mOnClickListener);
         menuListView.setAdapter(mListAdapter);
 
@@ -124,6 +138,8 @@ public class MainActivity extends TabActivity {
                 }
             }
         });
+
+
     }
 
     @Override
