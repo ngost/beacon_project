@@ -66,7 +66,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/infoTextView1"
-                            android:text="첫번째내용"/>
+                            android:text="매장이름"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
