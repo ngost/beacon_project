@@ -61,17 +61,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/buttominfo"
+                        android:layout_gravity="center"
                         android:orientation="horizontal">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView1"
+                            android:id="@+id/storeName1"
                             android:text="매장이름"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/infoTextView2"
-                            android:text="두번째내용"/>
                     </LinearLayout>
                 </LinearLayout>
 

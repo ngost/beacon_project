@@ -52,31 +52,6 @@ public class MainActivity extends TabActivity {
         major = getIntent().getStringExtra("major");
         Log.d("major=",major);
 
-        //final ProgressDialog dialog = ProgressDialog.show(context, "Please wait..", "Doing stuff..", true);
-        //dialog.setCancelable(true);
-       // final Runnable myRun = new Runnable(){
-         //   public void run(){
-          //      Looper.myLooper().prepare();
-                //DO EVERYTHING YOU WANT!
-
-                //Finally
-            //    runOnUiThread(new Runnable() {
-             //       @Override
-            //        public void run() {
-            //            dialog.dismiss();
-           //         }
-          ///      });
-         //   }
-      //  };
-
-
-        //new ProgressAsyncTask(context).execute();
-
-
-
-
-
-
         Thread jinThread = new Thread(new Runnable() {
             @Override
             public void run() {
